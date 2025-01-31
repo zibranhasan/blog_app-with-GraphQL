@@ -67,5 +67,19 @@ export const postResolvers = {
         post: null,
       };
     }
+
+    // console.log(args);
+
+    const updatedPost = await prisma.post.update({
+      where: {
+        id: Number(args.postId),
+      },
+      data: args.post,
+    });
+
+    return {
+      userError: null,
+      post: updatedPost,
+    };
   },
 };
