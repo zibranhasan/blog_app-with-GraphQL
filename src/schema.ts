@@ -2,7 +2,8 @@ export const typeDefs = `#graphql
 type Query{
     me: User
     users:[User]
-    post:[Post]
+    posts:[Post]
+    profile(userId: ID!):Profile
 }
 type Mutation{
      signup(
@@ -20,6 +21,7 @@ type Mutation{
     addPost(post:PostInput!): PostPayload
     updatePost(postId: ID!, post:PostInput!): PostPayload
     deletePost(postId:ID!):PostPayload
+    publishPost(postId: ID!):PostPayload
 }
 
 

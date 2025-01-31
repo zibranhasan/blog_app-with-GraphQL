@@ -2,12 +2,11 @@ import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { typeDefs } from "./schema.js";
 import { resolvers } from "./resolvers/index.js";
-
 import { Prisma, PrismaClient } from "@prisma/client";
 import { DefaultArgs } from "@prisma/client/runtime/library";
 import { jwtHelper } from "./utils/jwtHelper.js";
 
-const prisma = new PrismaClient();
+export const prisma = new PrismaClient();
 
 interface Context {
   prisma: PrismaClient<Prisma.PrismaClientOptions, never, DefaultArgs>;
